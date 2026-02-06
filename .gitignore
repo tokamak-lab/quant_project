@@ -1,0 +1,18 @@
+# Data
+/data/fi2010/
+/data/**/*.txt
+/data/**/*.zip
+
+# Results
+/results/*
+!/results/metrics/
+!/results/metrics/*.json
+/notebooks/results/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Notebooks
+.ipynb_checkpoints/

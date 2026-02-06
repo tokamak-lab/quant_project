@@ -1,0 +1,46 @@
+run_name: lit_like_fi2010
+
+# Data
+train_path: data/fi2010/BenchmarkDatasets/BenchmarkDatasets/Auction/1.Auction_Zscore/Auction_Zscore_Training/Train_Dst_Auction_ZScore_CF_1.txt
+val_path: data/fi2010/BenchmarkDatasets/BenchmarkDatasets/Auction/1.Auction_Zscore/Auction_Zscore_Testing/Test_Dst_Auction_ZScore_CF_1.txt
+fi2010_order: level  # level or block
+levels_per_side: 10
+
+# Labels
+horizons: [1, 2, 5, 10, 20]
+horizon_idx: 3
+neutral_band_ticks: 1.0
+
+# Sequences
+seq_len: 64
+batch_size: 128
+
+# Model
+model: transformer  # transformer or lstm
+use_ovr: true
+pooling: attn  # attn or mean
+c_in_extra: true
+
+# Manual OvR pos_weight (down, flat, up). Leave empty for auto.
+ovr_pos_weight: [0.8, 1.0, 3.5]
+
+d_model: 128
+conv_channels: 32
+n_heads: 4
+ff_dim: 256
+num_layers: 2
+dropout: 0.1
+
+# Training
+epochs: 5
+lr: 0.001
+weight_decay: 0.0001
+patience: 2
+show_progress: true
+
+# Inference
+decision_threshold: 0.35
+
+# System
+device: auto
+seed: 42
